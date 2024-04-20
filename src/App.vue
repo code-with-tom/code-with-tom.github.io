@@ -1,5 +1,12 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import {onMounted, ref} from 'vue'
+
+const placeholder = ref({})
+
+onMounted( async () => {
+  const response = await fetch("https://raw.githubusercontent.com/code-with-tom/code-with-tom.github.io-data/main/placeholder.json");
+  placeholder.value =  await response.json()
+})
 </script>
 
 <template>
@@ -11,7 +18,8 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue(autodeploy)" />
+  {{ placeholder }}
 </template>
 
 <style scoped>
