@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { test1 } from '../animations/test';
+import { animateLogo, animateMenu } from '@animations/header';
 
 const sections = ref([]);
 const current = ref("home")
@@ -10,6 +10,9 @@ onMounted(() => {
 
   window.addEventListener('wheel', handleScroll, { passive: false })
   scrollToSection(sections.value[0]);
+
+  animateLogo()
+  animateMenu()
 });
 
 const handleScroll = (event) => {
@@ -31,22 +34,22 @@ const scrollToSection = (section) => {
   current.value = section.getAttribute("name")
 
   if(section.getAttribute("name") === 'home') {
-    test1('.test-0')
+    
   }
   else if(section.getAttribute("name") === 'services') {
-    test1('.test-1')
+    // test1('.test-1')
   }
   else if(section.getAttribute("name") === 'portfolio') {
-    test1('.test-2')
+    // test1('.test-2')
   }
   else if(section.getAttribute("name") === 'blog') {
-    test1('.test-3')
+    // test1('.test-3')
   }
   else if(section.getAttribute("name") === 'about') {
-    test1('.test-4')
+    // test1('.test-4')
   }
   else if(section.getAttribute("name") === 'contact') {
-    test1('.test-5')
+    // test1('.test-5')
   }
 
   const targetScrollPosition = section.offsetTop;
@@ -84,17 +87,21 @@ const scrollToSection = (section) => {
     <div class="mx-auto max-w-screen-lg h-full px-4 lg:px-0">
       <div class="flex justify-between items-center h-full">
         <div class="select-none">
-          LOGO
+          <div class="anim-logo flex space-x-1 oswald uppercase">
+            <div>Code</div>
+            <div>With</div>
+            <div>Tom</div>
+          </div>
         </div>
         <div>
-          <ul>
-            <li class="space-x-8">
-              <a class="cursor-pointer select-none" :class="current === 'home' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[0])">Home</a>
-              <a class="cursor-pointer select-none" :class="current === 'services' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[1])">Services</a>
-              <a class="cursor-pointer select-none" :class="current === 'portfolio' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[2])">Portfolio</a>
-              <a class="cursor-pointer select-none" :class="current === 'blog' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[3])">Blog</a>
-              <a class="cursor-pointer select-none" :class="current === 'about' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[4])">About</a>
-              <a class="cursor-pointer select-none" :class="current === 'contact' ? 'text-emerald-300' : 'text-white'" @click="scrollToSection(sections[5])">Contact</a>
+          <ul class=" oswald uppercase ">
+            <li class="space-x-6">
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'home' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[0])">Home</a>
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'services' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[1])">Services</a>
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'portfolio' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[2])">Portfolio</a>
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'blog' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[3])">Blog</a>
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'about' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[4])">About</a>
+              <a class="anim-menu-item cursor-pointer select-none" :class="current === 'contact' ? 'text-purple-600' : 'text-white'" @click="scrollToSection(sections[5])">Contact</a>
             </li>
           </ul>
         </div>
@@ -103,33 +110,33 @@ const scrollToSection = (section) => {
   </nav>
 
   <!-- SECTIONS -->
-  <div class="text-white text-4xl">
-    <section name="home" class="py-20 bg-black h-screen border-b border-emerald-300 md:-mt-[80px]">
+  <div class=" text-white text-4xl">
+    <section name="home" class="py-20 bg-black h-screen md:-mt-[80px]">
       <div class="test-0 flex justify-center items-center h-full w-full">
         Section HERO
       </div>
     </section>
-    <section name="services" class="py-20 bg-black h-screen border-b border-emerald-300">
+    <section name="services" class="py-20 bg-black h-screen ">
       <div class="test-1 flex justify-center items-center h-full w-full">
         Section SERVICES
       </div>
     </section>
-    <section name="portfolio" class="py-20 bg-black h-screen border-b border-emerald-300">
+    <section name="portfolio" class="py-20 bg-black h-screen ">
       <div class="test-2 flex justify-center items-center h-full w-full">
         Section PORTFOLIO
       </div>
     </section>
-    <section name="blog" class="py-20 bg-black h-screen border-b border-emerald-300">
+    <section name="blog" class="py-20 bg-black h-screen ">
       <div class="test-3 flex justify-center items-center h-full w-full">
         Section BLOG
       </div>
     </section>
-    <section name="about" class="py-20 bg-black h-screen border-b border-emerald-300">
+    <section name="about" class="py-20 bg-black h-screen ">
       <div class="test-4 flex justify-center items-center h-full w-full">
         Section ABOUT
       </div>
     </section>
-    <section name="contact" class="py-20 bg-black h-screen border-b border-emerald-300">
+    <section name="contact" class="py-20 bg-black h-screen">
       <div class="test-5 flex justify-center items-center h-full w-full">
         Section CONTACT
       </div>
