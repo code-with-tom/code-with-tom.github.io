@@ -11,7 +11,7 @@ onMounted(() => {
 
   window.addEventListener('wheel', handleScroll, { passive: false })
   scrollToSection(sections.value[0]);
-
+  animateHeroSection()
   animateLogo()
   animateMenu()
   animateHeroBlob()
@@ -37,7 +37,7 @@ const scrollToSection = (section) => {
   current.value = section.getAttribute("name")
 
   if(section.getAttribute("name") === 'home') {
-    animateHeroSection()
+    
   }
   else if(section.getAttribute("name") === 'services') {
     // test1('.test-1')
@@ -114,7 +114,7 @@ const scrollToSection = (section) => {
 
   <!-- SECTIONS -->
   <div class=" text-white">
-    <section id="bg-hero" name="home" class="py-20 bg-black h-screen md:-mt-[80px] relative">
+    <section id="bg-hero" name="home" class="py-20 bg-black h-screen md:-mt-[80px] relative overflow-hidden">
       <ul class="absolute h-screen w-screen top-0 left-0 bottom-0 right-0 filter blur-[128px] overflow-hidden">
         <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[400px] w-[400px] right-0 bottom-0"></li>
         <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[300px] w-[300px] left-0 top-0"></li>
