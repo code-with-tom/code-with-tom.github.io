@@ -119,7 +119,7 @@ const scrollToSection = (section) => {
         <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[400px] w-[400px] right-0 bottom-0"></li>
         <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[300px] w-[300px] left-0 top-0"></li>
       </ul>
-      <div class="relative test-0 oswald h-full w-full flex flex-col justify-center mx-auto max-w-screen-lg  px-4 lg:px-0  overflow-hidden">
+      <div class="relative test-0 oswald h-full w-full flex flex-col justify-center mx-auto max-w-screen-lg  px-4 lg:px-0  ">
         <div class="anim-hero-item text-sm text-purple-600 uppercase">
           Crafting Digital Solutions with Precision
         </div>

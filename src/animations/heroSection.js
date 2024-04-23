@@ -48,7 +48,18 @@ const animateHeroIcons = () => {
       gsap.to(menuItem, { opacity: 1, duration: 1, delay: 1 + index * 0.1, ease: "power2.inOut" });
     });
  
-
+    heroBlobs.forEach((menuItem, index) => {
+      console.log('pol');
+      gsap.to(menuItem, { //chooses a random number between -20 and 20 for each target, rounding to the closest 5!
+      y: "random(-4, 4)",
+      scale: "random(0.9, 1.1)",
+      rotateZ:  "random(-16, 16)",
+      duration:4,
+      ease:"none",
+      delay: 1,
+      repeat:-1,
+      repeatRefresh:true });
+    });
 
   
 }
