@@ -15,20 +15,43 @@ const animateHeroBlob = () => {
   const heroBlobs = document.querySelectorAll('.anim-hero-blob');
   gsap.set(heroBlobs, { opacity: 0 });
   
-  
+  let tl = gsap.timeline()
   heroBlobs.forEach((heroBlob, index) => {
-    
-    gsap.to(heroBlob, { x: "random(-50, 50, 5)", //chooses a random number between -20 and 20 for each target, rounding to the closest 5!
+    tl.to(heroBlob, {opacity: 1, duration: .5, delay: .5})
+  });
+  heroBlobs.forEach((heroBlob, index) => {
+    tl.to(heroBlob, { x: "random(-50, 50, 5)", //chooses a random number between -20 and 20 for each target, rounding to the closest 5!
     y: "random(-400, 400, 3)",
     scale: "random(0.75, 1.5)",
-    opacity: "random(.75, 1)",
+    opacity: "random(.8, 1)",
     rotateZ:  "random(0, 360)",
-    duration:1,
+    duration:4,
     ease:"none",
+    delay: 1,
     repeat:-1,
     repeatRefresh:true });
   });
+
+
+  
 }
 
-export { animateHeroSection, animateHeroBlob }
+const animateHeroIcons = () => {
+  const heroBlobs = document.querySelectorAll('.anim-hero-images');
+  gsap.set(heroBlobs, { opacity: 0 });
+  
+  let tl = gsap.timeline()
+
+  
+  heroBlobs.forEach((menuItem, index) => {
+      console.log('pol');
+      gsap.to(menuItem, { opacity: 1, duration: 1, delay: 1 + index * 0.1, ease: "power2.inOut" });
+    });
+ 
+
+
+  
+}
+
+export { animateHeroSection, animateHeroBlob, animateHeroIcons }
 

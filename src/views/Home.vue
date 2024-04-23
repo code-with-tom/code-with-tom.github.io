@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { animateLogo, animateMenu } from '@animations/header';
-import { animateHeroSection, animateHeroBlob} from '@animations/heroSection';
+import { animateHeroSection, animateHeroBlob, animateHeroIcons} from '@animations/heroSection';
 
 const sections = ref([]);
 const current = ref("home")
@@ -15,6 +15,7 @@ onMounted(() => {
   animateLogo()
   animateMenu()
   animateHeroBlob()
+  animateHeroIcons()
 
 });
 
