@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { animateLogo, animateMenu } from '@animations/header';
+import { animateHeroSection, animateHeroBlob} from '@animations/heroSection';
 
 const sections = ref([]);
 const current = ref("home")
@@ -13,6 +14,8 @@ onMounted(() => {
 
   animateLogo()
   animateMenu()
+  animateHeroBlob()
+
 });
 
 const handleScroll = (event) => {
@@ -26,7 +29,6 @@ const handleScroll = (event) => {
 
   if (nextIndex >= 0 && nextIndex < sections.value.length) {
     scrollToSection(sections.value[nextIndex]);
-    
   }
 }
 
@@ -34,7 +36,7 @@ const scrollToSection = (section) => {
   current.value = section.getAttribute("name")
 
   if(section.getAttribute("name") === 'home') {
-    
+    animateHeroSection()
   }
   else if(section.getAttribute("name") === 'services') {
     // test1('.test-1')
@@ -110,10 +112,53 @@ const scrollToSection = (section) => {
   </nav>
 
   <!-- SECTIONS -->
-  <div class=" text-white text-4xl">
-    <section name="home" class="py-20 bg-black h-screen md:-mt-[80px]">
-      <div class="test-0 flex justify-center items-center h-full w-full">
-        Section HERO
+  <div class=" text-white">
+    <section id="bg-hero" name="home" class="py-20 bg-black h-screen md:-mt-[80px] relative">
+      <ul class="absolute h-screen w-screen top-0 left-0 bottom-0 right-0 filter blur-[128px] overflow-hidden">
+        <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[400px] w-[400px] right-0 bottom-0"></li>
+        <li class="anim-hero-blob absolute bg-purple-600 bg-opacity-25 h-[300px] w-[300px] left-0 top-0"></li>
+      </ul>
+      <div class="relative test-0 oswald h-full w-full flex flex-col justify-center mx-auto max-w-screen-lg  px-4 lg:px-0  overflow-hidden">
+        <div class="anim-hero-item text-sm text-purple-600 uppercase">
+          Crafting Digital Solutions with Precision
+        </div>
+        <div class="anim-hero-item text-8xl mt-2">
+          I’M THOMAS, DEVELOPER FROM FRANCE
+        </div>
+        <div class="anim-hero-item text-lg mt-8 w-[700px]">
+          Welcome to my digital playground. Experience the fusion of creativity and technology. Dive into my portfolio and explore my world 
+        </div>
+        <div class="absolute bottom-0 w-full anim-hero-icons">
+          <ul class="flex space-x-12">
+            <li class="relative w-14 h-14 anim-hero-images">
+              <img class="absolute left-0 h-full w-full" src="@assets/icons/html.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/css.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/js.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/vue.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/tailwind.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/electron.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/unity.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/godot.png" alt="">
+            </li>
+            <li class="w-14 h-14 anim-hero-images">
+              <img class="h-full w-full" src="@assets/icons/blender.png" alt="">
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
     <section name="services" class="py-20 bg-black h-screen ">
