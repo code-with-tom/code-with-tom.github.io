@@ -2,6 +2,7 @@ import { gsap } from "gsap"
 
 
 const animateInitDesktopNavbar = () => {
+  const navbar = document.querySelector('.anim-navbar');
   const navbarLogo = document.querySelector('.anim-navbar-logo');
   const menu = document.querySelector('.anim-menu');
   const menuLinks = document.querySelectorAll('.anim-menu-link');
@@ -10,14 +11,12 @@ const animateInitDesktopNavbar = () => {
 
   timeline.set(navbarLogo, { x: '-100%', opacity: 0 })
   timeline.set(menu, { x: '-100%', opacity: 0 })
-  timeline.set(menuLinks, {  opacity: 0 })
+  timeline.set(menuLinks, {  opacity: 1 })
 
   timeline.to(navbarLogo, { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }, 'start')
   timeline.to(menu, { x: 0, opacity: 1, duration: 1, ease: 'power2.out' }, 'start')
 
-  menuLinks.forEach((menuLinks, index) => {
-    timeline.to(menuLinks, { opacity: 1,  duration: .1,  delay: index * 0.001, ease: "power2.inOut" }, 'start');
-  });
+  timeline.to(navbar, { backgroundColor: 'rgba(0, 0, 0, 0.5)', duration: 0.5, ease: 'power2.out' })
 }
 
 const animateInitMobileNavbar = () => {

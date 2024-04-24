@@ -111,7 +111,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <nav class="hidden md:block sticky text-white h-[80px] w-full top-0 z-50">
+  <nav class="anim-navbar hidden md:block sticky text-white h-[80px] w-full top-0 z-50 bg-black border-b border-purple-600 border-opacity-25 backdrop-filter backdrop-blur-xl">
     <div class="mx-auto max-w-screen-lg h-full px-4 lg:px-0">
       <div class="flex justify-between items-center h-full">
         <div class="select-none">
